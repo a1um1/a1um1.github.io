@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR TESTER</title>
+  <style>
+    #qrgen {
+      width: 100%;
+      max-width: 500px;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <img id="qrgen" />
+  <input type="text" id="studentNo" />
+  <button onclick="generateQR()">Generate QR</button>
+  <script src="https://cdn.rawgit.com/neocotic/qrious/master/dist/qrious.min.js"></script>
+  <script>
+    function makeid() {
+      var text = "";
+      var possible = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      for (var i = 0; i < 11; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
+    }
+    function generateQR() {
+      const currentTime = new Date()
+      const timeFormaated = [
+        currentTime.getFullYear(),
+        currentTime.getMonth(),
+        currentTime.getDate(),
+        currentTime.getHours(),
+        currentTime.getMinutes(),
+        currentTime.getSeconds()
+      ].join('')
+      const studentNo = document.getElementById('studentNo').value;
+      const i = [
+        makeid() + "%3D",
+        encodeURIComponent(btoa(JSON.stringify({
+          studentNo: studentNo,
+          date: timeFormaated
+        }))),
+        makeid() + "%3D"
+      ].join('')
+      var qr = new QRious({
+        element: document.getElementById('qrgen'),
+        size: 200,
+        value: i
+      });
+    }
+  </script>
+</body>
+
+</html>
