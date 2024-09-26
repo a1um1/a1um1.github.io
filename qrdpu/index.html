@@ -17,8 +17,9 @@
 <body>
   <img id="qrgen" />
   <hr />
-  <label>User</label>
+  <label>Username (ไม่ต้องใส่ @dpu.ac.th)</label>
   <input type="text" id="username" />
+  <br />
   <label>Password</label>
   <input type="password" id="password" />
   <button onclick="authen()">Generate QR</button>
@@ -58,8 +59,8 @@
     }
     async function authen() {
       const details = {
-        'username': document.getElementById('username').value + '@dpu.ac.th',
-        'password': document.getElementById('password').valu,
+        'username': document.getElementById('username').value.trim() + '@dpu.ac.th',
+        'password': document.getElementById('password').value.trim(),
         'client_id': 'spa',
         'grant_type': 'password',
         'scope': 'openid reg.profile offline_access reg-api report-api dpu.content.api'
@@ -78,6 +79,20 @@
         },
         body: formBody
       })
+      const response = await auth.json()
+      if (response.error) {
+        switch (response.error_description) {
+          case 'Message.SU00004':
+            alert('บัญชีถูกระงับ 5 นาที')
+            break
+          default:
+            alert('Username หรือ Password ไม่ถูกต้อง')
+        }
+        return
+      }
+      if (response.access_token) {
+
+      }
     }
   </script>
 </body>
