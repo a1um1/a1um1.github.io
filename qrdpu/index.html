@@ -17,9 +17,11 @@
 <body>
   <img id="qrgen" />
   <hr />
-  <label>รหัสนักศึกษา</label>
-  <input type="text" id="studentNo" />
-  <button onclick="generateQR()">Generate QR</button>
+  <label>User</label>
+  <input type="text" id="username" />
+  <label>Password</label>
+  <input type="password" id="password" />
+  <button onclick="authen()">Generate QR</button>
   <script src="https://cdn.rawgit.com/neocotic/qrious/master/dist/qrious.min.js"></script>
   <script>
     function makeid() {
@@ -53,6 +55,29 @@
         size: 200,
         value: i
       });
+    }
+    async function authen() {
+      const details = {
+        'username': document.getElementById('username').value + '@dpu.ac.th',
+        'password': document.getElementById('password').valu,
+        'client_id': 'spa',
+        'grant_type': 'password',
+        'scope': 'openid reg.profile offline_access reg-api report-api dpu.content.api'
+      }
+      var formBody = [];
+      for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+      }
+      formBody = formBody.join("&");
+      const auth = await fetch(`https://regid-slcm.dpu.ac.th/connect/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formBody
+      })
     }
   </script>
 </body>
