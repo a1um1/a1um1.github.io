@@ -1,100 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR TESTER</title>
-  <style>
-    #qrgen {
-      width: 100%;
-      max-width: 500px;
-      height: 100%;
-    }
-  </style>
+  <meta http-equiv="refresh" content="0; url=https://dpuqr.vercel.app/">
 </head>
 
 <body>
-  <img id="qrgen" />
-  <hr />
-  <label>Username (ไม่ต้องใส่ @dpu.ac.th)</label>
-  <input type="text" id="username" />
-  <br />
-  <label>Password</label>
-  <input type="password" id="password" />
-  <button onclick="authen()">Generate QR</button>
-  <script src="https://cdn.rawgit.com/neocotic/qrious/master/dist/qrious.min.js"></script>
-  <script>
-    function makeid() {
-      var text = "";
-      var possible = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      for (var i = 0; i < 11; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-      return text;
-    }
-    function generateQR() {
-      const currentTime = new Date()
-      const timeFormaated = [
-        currentTime.getFullYear(),
-        currentTime.getMonth(),
-        currentTime.getDate(),
-        currentTime.getHours(),
-        currentTime.getMinutes(),
-        currentTime.getSeconds()
-      ].join('')
-      const studentNo = document.getElementById('studentNo').value;
-      const i = [
-        makeid() + "%3D",
-        encodeURIComponent(btoa(JSON.stringify({
-          studentNo: studentNo,
-          date: timeFormaated
-        }))),
-        makeid() + "%3D"
-      ].join('')
-      var qr = new QRious({
-        element: document.getElementById('qrgen'),
-        size: 200,
-        value: i
-      });
-    }
-    async function authen() {
-      const details = {
-        'username': document.getElementById('username').value.trim() + '@dpu.ac.th',
-        'password': document.getElementById('password').value.trim(),
-        'client_id': 'spa',
-        'grant_type': 'password',
-        'scope': 'openid reg.profile offline_access reg-api report-api dpu.content.api'
-      }
-      var formBody = [];
-      for (var property in details) {
-        var encodedKey = encodeURIComponent(property);
-        var encodedValue = encodeURIComponent(details[property]);
-        formBody.push(encodedKey + "=" + encodedValue);
-      }
-      formBody = formBody.join("&");
-      const auth = await fetch(`https://regid-slcm.dpu.ac.th/connect/token`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody
-      })
-      const response = await auth.json()
-      if (response.error) {
-        switch (response.error_description) {
-          case 'Message.SU00004':
-            alert('บัญชีถูกระงับ 5 นาที')
-            break
-          default:
-            alert('Username หรือ Password ไม่ถูกต้อง')
-        }
-        return
-      }
-      if (response.access_token) {
-
-      }
-    }
-  </script>
+  <h1>Redirecting...</h1>
 </body>
 
 </html>
