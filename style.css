@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+	--bg: oklch(0.9822 0.0192 90.54);
+	--fg: oklch(0.4802 0.093 104.71);
+}
+
+body {
+		font-family: 'Funnel Sans', sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: var(--bg);
+		color: var(--fg);
+}
+header {
+		padding: 2% 5%;
+	.title {
+		font-family: 'Space Mono', monospace;
+		font-weight: 200;
+		font-size: max(4rem, 8dvw);
+		line-height: 2rem;
+		font-style: italic;
+	}
+	.description {
+		font-weight: 100;
+		font-size: max(1.5rem, 2dvw);
+		margin-top: 0.5rem;
+		margin-bottom: 4rem;
+		b {
+			font-weight: 600;
+			font-style: italic;
+		}
+	}
+}
+
+.button {
+	padding: 0.7rem 5rem;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: var(--fg);
+	color: var(--bg);
+	font-family: 'Space Mono', monospace;
+	font-weight: 5	00;
+	font-size: 1.5rem;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	-moz-transition: all .5s cubic-bezier(0,.99,.25,1.02);
+	-o-transition: all .5s cubic-bezier(0,.99,.25,1.02);
+	-webkit-transition: all .5s cubic-bezier(0,.99,.25,1.02);
+	transition: all .5s cubic-bezier(0,.99,.25,1.02);
+
+	&:hover {
+		border-radius: 30px;
+	}
+}
