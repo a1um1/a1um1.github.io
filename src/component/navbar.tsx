@@ -31,10 +31,10 @@ export default function Navbar() {
           href="https://github.com/a1um1"
           target="_blank"
           rel="noopener noreferrer"
-          className="button ghost"
+          className="button ghost icon"
         >
           <GitHubIcon />
-          Github
+          <span>Github</span>
         </a>
       </div>
     </nav>

@@ -2,6 +2,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
 	--color-background: oklch(98.495% 0.01068 316.067);
 	--color-text: oklch(24.334% 0.14966 277.836);
@@ -37,13 +38,12 @@ main {
 	margin: 0 auto;
 }
 
-
-
 nav {
 	transition: all 0.3s ease-in-out;
 	position: sticky;
   top: 0;
-
+	--h1-font-size: 6rem;
+	
 	.container {
 		max-width: 1280px;
 		margin: 0 auto;
@@ -55,13 +55,12 @@ nav {
 	}
 
 	h1 {
-		font-size: 6rem;
+		font-size: var(--h1-font-size);
 		font-family: 'Space Mono', monospace;
 		font-weight: 500;
 		font-style: italic;
 		transition: all 0.3s ease-in-out;
 	}
-
 
 	&.small {
 		background-color: var(--color-nav-background);
@@ -122,6 +121,7 @@ a {
 .button {
 	--btn-bg: var(--color-text);
 	--btn-color: var(--color-background);
+
 	background-color: var(--btn-bg);
 	color: var(--btn-color);
 	padding: 1rem 1.5rem;
@@ -133,14 +133,7 @@ a {
 	transition: all 0.3s cubic-bezier(0,.73,.36,.99);
 	border-radius: 0.25rem;
 	font-size: 1.5rem;
-	&.ghost {
-		--btn-bg: transparent;
-		--btn-color: currentColor;
-		&:hover, &:focus {
-			--btn-bg: var(--color-text);
-			--btn-color: var(--color-background);
-		}
-	}
+
 
 	&.lg {
 		font-size: 2rem;
@@ -154,18 +147,39 @@ a {
 	&:focus {
 		outline: 4px solid color-mix(in srgb, var(--color-text)	, transparent 50%);
 	}
-	
-}
 
-	svg {
-		width: 2rem;
-		height: 2rem;
-		fill: currentColor;
-	}
-
-	footer {
-		main {
-			padding: 2rem;
-			font-size: 1.5rem;
+	&.ghost {
+		--btn-bg: transparent;
+		--btn-color: currentColor;
+		&:hover, &:focus {
+			--btn-bg: var(--color-text);
+			--btn-color: var(--color-background);
 		}
 	}
+}
+
+svg {
+	width: 2rem;
+	height: 2rem;
+	fill: currentColor;
+}
+
+footer {
+	main {
+		padding: 2rem;
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	nav{
+		--h1-font-size: 3rem;
+	}
+	.button {
+		&.icon {
+			span {
+				display: none;
+			}
+		}
+	}
+}
