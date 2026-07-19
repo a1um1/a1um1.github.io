@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import GitHubIcon from "../icons/github";
-import LinkedInIcon from "../icons/LinkedIn";
+import LinkedInIcon from "../icons/linkedIn";
 
 export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(window.scrollY === 0);
