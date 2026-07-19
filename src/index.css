@@ -1,0 +1,171 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+	--color-background: oklch(98.495% 0.01068 316.067);
+	--color-text: oklch(24.334% 0.14966 277.836);
+	--color-border: oklch(91.625% 0.04523 295.169);
+	--color-primary: oklch(53.133% 0.26424 276.72);
+	--color-nav-background: oklch(31.17% 0.03386 289.086);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.font-sans {
+	font-family: 'Google Sans', sans-serif;
+}
+
+.font-mono {
+	font-family: 'Space Mono', monospace;
+}
+
+body {
+	font-family: 'Google Sans', sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-text);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+
+
+nav {
+	transition: all 0.3s ease-in-out;
+	position: sticky;
+  top: 0;
+
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+		width: 100%;
+		padding: 2rem 2rem 0rem 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 6rem;
+		font-family: 'Space Mono', monospace;
+		font-weight: 500;
+		font-style: italic;
+		transition: all 0.3s ease-in-out;
+	}
+
+
+	&.small {
+		background-color: var(--color-nav-background);
+		color: var(--color-background);
+		margin-bottom: 6rem;
+		.container {
+			padding: 1rem 2rem;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+section.intro {
+	padding: 0rem 2rem 2rem 2rem;
+	display: flex;
+	flex-direction: column;
+
+	p {
+		font-size: 3rem;
+		font-weight: 400;
+	}
+}
+
+.wireframe {
+  color: var(--text-color, color-mix(in srgb, var(--color-text), transparent 95%));
+  -webkit-text-stroke: 1px var(--outline-color, var(--color-text));
+}
+
+.badge {
+	border: 3px solid var(--color-primary);
+	color: var(--color-primary);
+	padding: 0 1.5rem;
+	line-height: 0.5rem;
+	font-weight: 500;
+	white-space: nowrap;
+	border-radius: 10rem;
+}
+
+.lorem {
+	font-family: 'Space Mono', monospace;
+	font-size: 1.5rem;
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+.description {
+	margin-bottom: 2rem;
+}
+
+.button {
+	--btn-bg: var(--color-text);
+	--btn-color: var(--color-background);
+	background-color: var(--btn-bg);
+	color: var(--btn-color);
+	padding: 1rem 1.5rem;
+	display: flex;
+	width: fit-content; 
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+	transition: all 0.3s cubic-bezier(0,.73,.36,.99);
+	border-radius: 0.25rem;
+	font-size: 1.5rem;
+	&.ghost {
+		--btn-bg: transparent;
+		--btn-color: currentColor;
+		&:hover, &:focus {
+			--btn-bg: var(--color-text);
+			--btn-color: var(--color-background);
+		}
+	}
+
+	&.lg {
+		font-size: 2rem;
+		padding: 1rem 2rem;
+	}
+
+	&:hover, &:focus {
+		border-radius: 3rem;
+	}
+
+	&:focus {
+		outline: 4px solid color-mix(in srgb, var(--color-text)	, transparent 50%);
+	}
+	
+}
+
+	svg {
+		width: 2rem;
+		height: 2rem;
+		fill: currentColor;
+	}
+
+	footer {
+		main {
+			padding: 2rem;
+			font-size: 1.5rem;
+		}
+	}
