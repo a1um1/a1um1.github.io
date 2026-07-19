@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GitHubIcon from "../icons/github";
+import LinkedInIcon from "../icons/LinkedIn";
 
 export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(window.scrollY === 0);
@@ -27,15 +28,26 @@ export default function Navbar() {
     <nav className={isAtTop ? "" : "small"}>
       <div className="container">
         <h1>a1um1_</h1>
-        <a
-          href="https://github.com/a1um1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="button ghost icon"
-        >
-          <GitHubIcon />
-          <span>Github</span>
-        </a>
+        <div className="links">
+          <a
+            href="https://github.com/a1um1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button ghost icon"
+          >
+            <GitHubIcon />
+            <span>Github</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tlakchai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button ghost icon"
+          >
+            <LinkedInIcon />
+            <span>LinkedIn</span>
+          </a>
+        </div>
       </div>
     </nav>
   );

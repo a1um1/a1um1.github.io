@@ -1,0 +1,13 @@
+section.intro {
+	padding: 0rem 2rem 2rem 2rem;
+	display: flex;
+	flex-direction: column;
+
+	p {
+		font-size: 3rem;
+		font-weight: 400;
+	}
+	.description {
+		margin-bottom: 2rem;
+	}	
+}

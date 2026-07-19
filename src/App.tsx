@@ -1,4 +1,5 @@
 import Navbar from "./component/navbar";
+import Projects from "./component/projects";
 
 function App() {
   return (
@@ -32,7 +33,9 @@ function App() {
             </a>
           </div>
         </section>
+        <Projects />
       </main>
+
       <footer>
         <main>Copyright {new Date().getFullYear()} All Rights Reserved</main>
       </footer>

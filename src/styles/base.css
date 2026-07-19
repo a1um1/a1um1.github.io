@@ -1,0 +1,62 @@
+:root {
+	--color-background: oklch(98.495% 0.01068 316.067);
+	--color-text: oklch(27.688% 0.0958 292.413);
+	--color-border: oklch(91.625% 0.04523 295.169);
+	--color-primary: #5341ff;
+	--color-nav-background: oklch(31.17% 0.03386 289.086);
+	--color-card-background: oklch(91.66% 0.03401 291.172);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.font-sans {
+	font-family: 'Google Sans', sans-serif;
+}
+
+.font-mono {
+	font-family: 'Space Mono', monospace;
+}
+
+body {
+	font-family: 'Google Sans', sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-text);
+}
+
+
+main {
+	display: flex;
+	flex-direction: column;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.wireframe {
+  color: var(--text-color, color-mix(in srgb, var(--color-text), transparent 95%));
+  -webkit-text-stroke: 1px var(--outline-color, var(--color-text));
+}
+
+.badge {
+	border: 3px solid var(--color-primary);
+	color: var(--color-primary);
+	padding: 0 1.5rem;
+	line-height: 0.5rem;
+	font-weight: 500;
+	white-space: nowrap;
+	border-radius: 10rem;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+svg {
+	width: 2rem;
+	height: 2rem;
+	fill: currentColor;
+}

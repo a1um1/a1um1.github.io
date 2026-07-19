@@ -1,0 +1,47 @@
+nav {
+	transition: all 0.3s ease-in-out;
+	position: sticky;
+  top: 0;
+	--h1-font-size: 6rem;
+	
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+		width: 100%;
+		padding: 2rem 2rem 0rem 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: var(--h1-font-size);
+		font-family: 'Space Mono', monospace;
+		font-weight: 500;
+		font-style: italic;
+		transition: all 0.3s ease-in-out;
+	}
+
+	&.small {
+		background-color: var(--color-nav-background);
+		color: var(--color-background);
+		margin-bottom: 6rem;
+		.container {
+			padding: 1rem 2rem;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+		}
+	}
+	.links {
+		display: flex;
+		gap: 0.25rem;
+	}
+}
+
+@media (max-width: 768px) {
+	nav{
+		--h1-font-size: 3rem;
+	}
+}
