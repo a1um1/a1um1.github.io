@@ -5,7 +5,7 @@ export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(window.scrollY === 0);
 
   useEffect(() => {
-    let timeoutId = null;
+    let timeoutId: number | null = null;
 
     const handleScroll = () => {
       if (!timeoutId) {

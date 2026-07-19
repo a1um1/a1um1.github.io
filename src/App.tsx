@@ -1,5 +1,5 @@
 import Navbar from "./component/navbar";
-import MailIcon from "./icons/mail";
+
 function App() {
   return (
     <>
